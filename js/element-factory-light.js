@@ -1,5 +1,5 @@
 const elementFactory = {
-    htmlCache: [],
+    definedIncludes: [],
     defineElements(definitions, prefix = 'jh')
     {
         for (const name in definitions) {
@@ -26,46 +26,44 @@ const elementFactory = {
         {
             async connectedCallback()
             {
-                let html;
+                // .attachShadow({mode: 'open'})
+                // slotted needed for non-shadow slots
+                const html = await (await fetch(htmlFile)).text(),
+                    slotted = this.innerHTML;
 
-                if (elementFactory.htmlCache[htmlFile]) {
-                    html = elementFactory.htmlCache[htmlFile];
-                } else {
-                    html = await (await fetch(htmlFile)).text();
-                    elementFactory.htmlCache[htmlFile] = html;
+                this.innerHTML = html;
+
+                const slot = this.querySelector("slot")
+
+                if (slot) {
+                    slot.innerHTML = slotted;
                 }
-                const shadowRoot = this.attachShadow({mode: 'open'});
-
-                shadowRoot.innerHTML = html;
 
                 const customHref = this.getAttribute("href"),
-                    link = shadowRoot.querySelector("a");
+                    link = this.querySelector("a");
                 if (link) {
                     link.setAttribute("href", customHref);
                 }
 
                 const customSrc = this.getAttribute("src"),
-                    img = shadowRoot.querySelector("img");
+                    img = this.querySelector("img");
                 if (img) {
                     img.setAttribute("src", customSrc);
                 }
 
-                if (options.bsCSS) {
-                    const bsLink = document.createElement("link");
-                    bsLink.rel = "stylesheet";
-                    bsLink.href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css";
-                    bsLink.integrity = "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb";
-                    bsLink.setAttribute("crossorigin", "anonymous");
-
-                    shadowRoot.appendChild(bsLink);
+                if (this.parentNode) {
+                    this.outerHTML = this.innerHTML;
                 }
 
-                if (options.css) {
+                if (options.css &&
+                    !elementFactory.definedIncludes.includes(cssFile)) {
+                    console.log(`including ${cssFile}`);
+                    elementFactory.definedIncludes.push(cssFile);
                     const style = document.createElement('link');
                     style.href = cssFile;
                     style.type = "text/css";
                     style.rel = "stylesheet";
-                    shadowRoot.appendChild(style);
+                    document.head.appendChild(style);
                 }
             }
         };
