@@ -41,10 +41,26 @@ elementFactory.defineElements({
             }
         }
     },
-    main: {
+    page: {
+        options: {
+            bsCSS: true
+        },
+        portfolio: {
+            options: {
+                bsCSS: true
+            }
+        }
+    },
+    pages: {
         options: {
             bsCSS: true,
             css: true
         }
     }
 });
+
+const hashchange = e => {
+    console.log(window.location.hash);
+};
+addEventListener("hashchange", hashchange);
+hashchange();
