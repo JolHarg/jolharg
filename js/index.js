@@ -5,6 +5,7 @@ elementFactory.defineElements({
     breadcrumb: {},
     card: {
         options: {
+            css: true,
             bsCSS: true
         },
         img: {
