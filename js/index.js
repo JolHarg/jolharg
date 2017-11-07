@@ -1,64 +1,6 @@
-import elementFactory from './element-factory.js';
+import defineElements from './defineElements';
 
-elementFactory.defineElements({
-    app: {},
-    breadcrumb: {},
-    card: {
-        options: {
-            css: true,
-            bsCSS: true
-        },
-        img: {
-            options: {
-                css: true
-            }
-        },
-        link: {
-            options: {
-                bsCSS: true
-            }
-        },
-        summary: {
-        },
-        text: {
-            options: {
-                bsCSS: true
-            }
-        },
-        title: {
-            options: {
-                bsCSS: true
-            }
-        }
-    },
-    header: {
-        options: {
-            bsCSS: true
-        },
-        link: {
-            options: {
-                bsCSS: true,
-                css: true
-            }
-        }
-    },
-    page: {
-        options: {
-            bsCSS: true
-        },
-        portfolio: {
-            options: {
-                bsCSS: true
-            }
-        }
-    },
-    pages: {
-        options: {
-            bsCSS: true,
-            css: true
-        }
-    }
-});
+defineElements();
 
 const hashchange = e => {
     console.log(window.location.hash);
