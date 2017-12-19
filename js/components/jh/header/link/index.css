@@ -1,6 +1,6 @@
 .btn, .btn:hover, .btn:active, .btn:focus {
-    color: white;
-    box-shadow: none;    
+    color: purple;
+    box-shadow: none;
 }
 
 a:hover {
