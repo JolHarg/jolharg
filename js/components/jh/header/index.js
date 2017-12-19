@@ -5,4 +5,8 @@ export default class Header extends ElementAbstract
     get dir() {
         return `/js/components/jh/header`;
     }
+
+    get hascss() {
+        return true;
+    }
 }
