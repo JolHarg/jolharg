@@ -1,9 +1,6 @@
-import defineElements from './defineElements';
+import defineElements from './defineElements.js';
 
-defineElements();
-
-const hashchange = e => {
-    console.log(window.location.hash);
-};
-addEventListener("hashchange", hashchange);
-hashchange();
+(async () => {
+    await defineElements();
+    console.info(`Ready`);
+})();
