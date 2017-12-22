@@ -11,8 +11,6 @@ export default class Pages extends ElementAbstract
     }
 
     hashchange() {
-        console.log(window.location.hash);;
-        console.log(this.shadowRoot.querySelectorAll(`jh-page`));
         this.shadowRoot.querySelectorAll(`jh-page`).forEach((page) => page.removeAttribute(`data-active`));
         this.shadowRoot.querySelector(window.location.hash).setAttribute(`data-active`, true);
     }

@@ -9,7 +9,9 @@ import CardTitle        from './components/jh/card/title/index.js';
 import Header           from './components/jh/header/index.js';
 import HeaderLink       from './components/jh/header/link/index.js';
 import Page             from './components/jh/page/index.js';
+import PageFs           from './components/jh/page/fs/index.js';
 import PagePortfolio    from './components/jh/page/portfolio/index.js';
+import PageTechs        from './components/jh/page/techs/index.js';
 import Pages            from './components/jh/pages/index.js';
 
 const modules = [
@@ -24,7 +26,9 @@ const modules = [
     ['jh-header',            Header],
     ['jh-header-link',       HeaderLink],
     ['jh-page',              Page],
+    ['jh-page-fs',           PageFs],
     ['jh-page-portfolio',    PagePortfolio],
+    ['jh-page-techs',        PageTechs],
     ['jh-pages',             Pages]
 ];
 
