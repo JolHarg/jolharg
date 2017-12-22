@@ -1,3 +1,4 @@
 .card-text {
-    height: 30px;
+    height: 40px;
+    max-width: 100%;
 }

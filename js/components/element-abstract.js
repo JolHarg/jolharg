@@ -16,7 +16,8 @@ export default class ElementAbstract extends HTMLElement
     {
         try {
             const html = await (await fetch(`${this.dir}/index.html`)).text(),
-                extcss = await (await fetch(`${this.dir}/external.css`)).text();
+                extcss = await (await fetch(`/node_modules/bootstrap/dist/css/bootstrap.css`)).text();
+                //extcss = await (await fetch(`${this.dir}/external.css`)).text();
 
             let template = `${html}<style>${extcss}</style>`;
             if (this.hascss) {
@@ -25,7 +26,7 @@ export default class ElementAbstract extends HTMLElement
             }
 
             this.attachShadow({mode: 'open'});
-            
+
             this.shadowRoot.innerHTML = template;
 
             for (const strAttr of ["src", "href"]) {
