@@ -4,6 +4,7 @@
   "description": "JolHarg Web Site",
   "main": "js/index.js",
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "^1.0.22",
     "query-string": "^5.0.1"
   },
   "devDependencies": {
