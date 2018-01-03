@@ -31,13 +31,17 @@ export default class ElementAbstract extends HTMLElement
 
             for (const strAttr of ["src", "href"]) {
                 if (this.hasAttribute(strAttr)) {
-                    this.shadowRoot.querySelector(`[${strAttr}]`).setAttribute(strAttr, this.getAttribute(strAttr));
+                    const elem = this.shadowRoot.querySelector(`[${strAttr}]`),
+                        strValue = this.getAttribute(strAttr);
+                    if (elem) {
+                        elem.setAttribute(strAttr, strValue);
+                    }
                 }
             }
 
             await this.afterAll();
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }
