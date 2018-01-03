@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "JolHarg Web Site",
   "main": "js/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "query-string": "^5.0.1"
+  },
   "devDependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^3.2.1",
