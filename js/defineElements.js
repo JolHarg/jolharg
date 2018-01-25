@@ -16,22 +16,22 @@ import PageTechs        from './components/jh/page/techs/index.js';
 import Pages            from './components/jh/pages/index.js';
 
 const modules = [
-    ['jh-app',               App],
-    ['jh-breadcrumb',        Breadcrumb],
-    ['jh-card',              Card],
-    ['jh-card-img',          CardImg],
-    ['jh-card-link',         CardLink],
-    ['jh-card-summary',      CardSummary],
-    ['jh-card-text',         CardText],
-    ['jh-card-title',        CardTitle],
-    ['jh-header',            Header],
-    ['jh-header-link',       HeaderLink],
-    ['jh-page',              Page],
-    ['jh-page-contact',      PageContact],
-    ['jh-page-fs',           PageFs],
-    ['jh-page-portfolio',    PagePortfolio],
-    ['jh-page-techs',        PageTechs],
-    ['jh-pages',             Pages]
+    [`jh-app`,               App],
+    [`jh-breadcrumb`,        Breadcrumb],
+    [`jh-card`,              Card],
+    [`jh-card-img`,          CardImg],
+    [`jh-card-link`,         CardLink],
+    [`jh-card-summary`,      CardSummary],
+    [`jh-card-text`,         CardText],
+    [`jh-card-title`,        CardTitle],
+    [`jh-header`,            Header],
+    [`jh-header-link`,       HeaderLink],
+    [`jh-page`,              Page],
+    [`jh-page-contact`,      PageContact],
+    [`jh-page-fs`,           PageFs],
+    [`jh-page-portfolio`,    PagePortfolio],
+    [`jh-page-techs`,        PageTechs],
+    [`jh-pages`,             Pages]
 ];
 
 modules.map(

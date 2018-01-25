@@ -1,13 +1,13 @@
 export default async () => {
-    if (!'serviceWorker' in navigator) {
+    if (!(`serviceWorker` in navigator)) {
         return;
     }
 
     try {
-        const registration = await navigator.serviceWorker.register(
-            '/worker.js',
+        await navigator.serviceWorker.register(
+            `/worker.js`,
             {
-                scope: '/'
+                scope: `/`
             }
         );
         //console.debug(`Registration succeeded. Scope is ${registration.scope}`);
@@ -15,6 +15,6 @@ export default async () => {
             window.location.reload();
         }
     } catch(err) {
-        console.error(err);
+        //console.error(err);
     }
 };
