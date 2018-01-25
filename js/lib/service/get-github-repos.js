@@ -24,7 +24,7 @@ export default async user => {
         description: item.description ?
             item.description :
             `(no description)`,
-        licence: item.license && "Other" !== item.license.name ?
+        licence: item.license && `Other` !== item.license.name ?
             `<br/><a href="https://spdx.org/licenses/${item.license.spdx_id}.html" target="_blank">${item.license.spdx_id}</a>`:
             ``,
         url: item.clone_url
