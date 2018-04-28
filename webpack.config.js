@@ -40,7 +40,7 @@ module.exports = {
     plugins: [
         new webpack.EnvironmentPlugin(
             [
-                'GITHUB_ACCESS_TOKEN'
+                `GITHUB_ACCESS_TOKEN`
             ]
         ),
         new HtmlWebpackPlugin(
