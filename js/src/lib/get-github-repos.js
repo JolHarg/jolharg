@@ -1,7 +1,6 @@
-import { github } from '../config/config.js';
 import { fetchjson } from './ajax.js';
 
-const qs = `per_page=100&sort=pushed&type=owner&direction=desc&access_token=${github.access_token}`;
+const qs = `per_page=100&sort=pushed&type=owner&direction=desc&access_token=${process.env.GITHUB_ACCESS_TOKEN}`;
 
 export default async user => {
     const arrResponse = await fetchjson(

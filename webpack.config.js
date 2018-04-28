@@ -38,13 +38,16 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.EnvironmentPlugin(
+            [
+                'GITHUB_ACCESS_TOKEN'
+            ]
+        ),
         new HtmlWebpackPlugin(
             {
-                template: `./src/index.pug`
+                template: `./templates/index.pug`
             }
         ),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin(
             [
                 {
@@ -52,6 +55,8 @@ module.exports = {
                     to: `./img`
                 }
             ]
-        )
+        ),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
