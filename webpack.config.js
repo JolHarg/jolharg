@@ -1,4 +1,4 @@
-const webpack = require('webpack'),
+const webpack = require(`webpack`),
     HtmlWebpackPlugin = require(`html-webpack-plugin`),
     CopyWebpackPlugin = require(`copy-webpack-plugin`);
 
@@ -11,7 +11,7 @@ module.exports = {
         filename: `js/index.js`
     },
     devServer: {
-        contentBase: './',
+        contentBase: `./`,
         hot: true
     },
     module: {
