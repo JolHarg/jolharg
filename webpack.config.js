@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require(`html-webpack-plugin`),
+const webpack = require('webpack'),
+    HtmlWebpackPlugin = require(`html-webpack-plugin`),
     CopyWebpackPlugin = require(`copy-webpack-plugin`);
 
 module.exports = {
@@ -8,6 +9,10 @@ module.exports = {
         path: __dirname+`/.site/`,
         publicPath: `/`,
         filename: `js/index.js`
+    },
+    devServer: {
+        contentBase: './',
+        hot: true
     },
     module: {
         rules: [
@@ -38,6 +43,8 @@ module.exports = {
                 template: `./src/index.pug`
             }
         ),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin(
             [
                 {
