@@ -1,0 +1,20 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [
+                        "> 5%"
+                    ]
+                }
+            }
+        ],
+        [
+            "@babel/preset-stage-0",
+            {
+                "decoratorsLegacy": true
+            }
+        ]
+    ]
+}
