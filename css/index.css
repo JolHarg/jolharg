@@ -1,9 +1,0 @@
-body {
-    background-color: #eee;
-}
-h1,h2,h3,h4,h5,h6,p,a {
-    font-family: sans-serif;
-}
-:host {
-    contain: content;
-}

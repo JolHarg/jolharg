@@ -3,14 +3,17 @@
         [
             "@babel/preset-env",
             {
-                "exclude": [
-                    "transform-regenerator"
-                ],
                 "targets": {
                     "browsers": [
-                        "last 2 versions"
+                        "> 5%"
                     ]
                 }
+            }
+        ],
+        [
+            "@babel/preset-stage-0",
+            {
+                "decoratorsLegacy": true
             }
         ]
     ]
