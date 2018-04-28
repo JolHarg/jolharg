@@ -18,11 +18,11 @@ h1,h2,h3,h4,h5,h6,p,a {
     box-shadow: none;
 }
 
-a:hover {
+.nav-link:hover {
     transform: scale(1.1);
 }
 
-a {
+.nav-link {
     transition: all 0.5s ease-in-out !important;
 }
 
