@@ -27,7 +27,13 @@ a {
 }
 
 .container-fluid {
-    margin-top: 56px;
+    margin-top: 60px;
+}
+
+@media(max-width: 576px) {
+    .container-fluid {
+        margin-top: 80px;
+    }
 }
 
 .jh-page {
