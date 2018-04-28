@@ -1,10 +1,11 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: __dirname,
     entry: './js/src/index.js',
     output: {
-        path: __dirname+'/',
+        path: __dirname+'/.site/',
         publicPath: '/',
         filename: "js/index.js"
     },
@@ -36,6 +37,14 @@ module.exports = {
             {
                 template: './src/index.pug'
             }
+        ),
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: './img',
+                    to: './img'
+                }
+            ]
         )
     ]
 };

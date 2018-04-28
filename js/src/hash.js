@@ -8,8 +8,8 @@ export default () => {
         if (currentHashElem) {
             currentHashElem.setAttribute(`data-active`, true);
         }
-    }
+    };
 
     window.addEventListener(`hashchange`, hashchange);
     hashchange();
-}
+};

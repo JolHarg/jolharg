@@ -18,4 +18,4 @@ export default async () => {
         ).join(``)
     ).join(``);
     document.getElementById(`inside`).innerHTML = html;
-}
+};
