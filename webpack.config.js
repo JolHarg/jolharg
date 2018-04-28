@@ -1,13 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require(`html-webpack-plugin`),
+    CopyWebpackPlugin = require(`copy-webpack-plugin`);
 
 module.exports = {
     context: __dirname,
-    entry: './js/src/index.js',
+    entry: `./js/src/index.js`,
     output: {
-        path: __dirname+'/.site/',
-        publicPath: '/',
-        filename: "js/index.js"
+        path: __dirname+`/.site/`,
+        publicPath: `/`,
+        filename: `js/index.js`
     },
     module: {
         rules: [
@@ -15,34 +15,34 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: "style-loader"
+                        loader: `style-loader`
                     },
                     {
-                        loader: "css-loader"
+                        loader: `css-loader`
                     }
                 ]
             },
             {
                 test: /\.pug$/,
-                use: "pug-loader"
+                use: `pug-loader`
             },
-            { test: /\.js$/, exclude: /node_modules/, use: "babel-loader" },
-            { test: /\.svg/, use: "file-loader" },
-            { test: /\.ttf/, use: "file-loader" },
-            { test: /\.woff2?/, use: "url-loader?limit=10000&mimetype=application/font-woff" }
+            { test: /\.js$/, exclude: /node_modules/, use: `babel-loader` },
+            { test: /\.svg/, use: `file-loader` },
+            { test: /\.ttf/, use: `file-loader` },
+            { test: /\.woff2?/, use: `url-loader?limit=10000&mimetype=application/font-woff` }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin(
             {
-                template: './src/index.pug'
+                template: `./src/index.pug`
             }
         ),
         new CopyWebpackPlugin(
             [
                 {
-                    from: './img',
-                    to: './img'
+                    from: `./img`,
+                    to: `./img`
                 }
             ]
         )

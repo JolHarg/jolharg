@@ -8,7 +8,7 @@
     "deploy": "npm run test && npm run build && gh-pages -d .site",
     "serve": "serve",
     "start": "webpack -w & serve",
-    "test": "eslint js/src"
+    "test": "eslint js/src *.js"
   },
   "repository": {
     "type": "git",
