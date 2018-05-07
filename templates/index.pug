@@ -1,34 +1,20 @@
+include includes/mixins
 doctype html
 head
-  meta(name='description' content='JolHarg: engineering software and services')
-  meta(name='keywords' content='dan,dart,software,engineer,php,javascript,css,coffee,coffeescript,laravel,zend,framework,linux,gnu,express.js,ubuntu,debian')
-  meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
-  meta(http-equiv='Who-is-awesome' content='Dan')
-  meta(charset='utf-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
-  title JolHarg: Engineering Software
+  include includes/head.pug
 header
   nav.p-0.p-sm-2.navbar.d-block.d-sm-flex.fixed-top.navbar-expand.navbar-dark.bg-primary(role='navigation')
     a.w-100.p-0.pt-1.pt-sm-0.w-sm-auto.text-center.text-sm-left.navbar-brand(href='#portfolio')
       img(src='/img/jolharg.png' style='height:32px' alt='')
     div
       ul.navbar-nav
-        li.nav-item
-          a.nav-link.btn.btn-sm(href='#portfolio') Portfolio
-        //li.nav-item
-        //  a.nav-link.btn.btn-sm(href='#techs') Technologies
-        li.nav-item
-          a.nav-link.btn.btn-sm(href='#fs') Free Software
-        //li.nav-item
-        //  a.nav-link.btn.btn-sm(href='#pricing') Pricing
-        //li.nav-item
-        //  a.nav-link.btn.btn-sm(href='#blog') Blog
-        //li.nav-item
-        //  a.nav-link.btn.btn-sm(href='#about') About
-        li.nav-item
-          a.nav-link.btn.btn-sm(href='#contact') Contact
+        +menuitem('#portfolio') Portfolio
+        // +menuitem('#techs') Technologies
+        +menuitem('#fs') Free Software
+        // +menuitem('#pricing') Pricing
+        // +menuitem('#blog') Blog
+        // +menuitem('#about') About
+        +menuitem('#contact') Contact
 main.container-fluid
   .tab-content
     #portfolio.jh-page(data-active='')
