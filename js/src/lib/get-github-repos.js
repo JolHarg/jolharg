@@ -1,5 +1,5 @@
-import danwdartJson from '../../../.site/github/danwdart.json';
-import jolhargJson from '../../../.site/github/jolharg.json';
+import danwdartJson from './github/danwdart.json';
+import jolhargJson from './github/jolharg.json';
 
 export default async user => {
     const arrResponse = `danwdart` === user ? danwdartJson : (

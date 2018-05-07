@@ -10,5 +10,5 @@ USER=$1
 QS="per_page=100&sort=pushed&type=owner&direction=desc&access_token=$GITHUB_ACCESS_TOKEN"
 URL="https://api.github.com/users/$USER/repos?$QS"
 
-mkdir -p .site/github
-wget -O .site/github/$USER.json "$URL" 2>/dev/null
+mkdir -p js/src/lib/github
+wget -O js/src/lib/github/$USER.json "$URL" 2>/dev/null
