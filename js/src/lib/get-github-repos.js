@@ -1,15 +1,12 @@
-import { fetchjson } from './ajax.js';
-
-const qs = `per_page=100&sort=pushed&type=owner&direction=desc&access_token=${process.env.GITHUB_ACCESS_TOKEN}`;
+import danwdartJson from '../../../.site/github/danwdart.json';
+import jolhargJson from '../../../.site/github/jolharg.json';
 
 export default async user => {
-    const arrResponse = await fetchjson(
-        `https://api.github.com/users/${user}/repos?${qs}`
+    const arrResponse = `danwdart` === user ? danwdartJson : (
+        `jolharg` === user ?
+            jolhargJson:
+            []
     );
-
-    if (arrResponse.message) {
-        throw new Error(arrResponse.message);
-    }
 
     return arrResponse.map(item => ({
         picture: item.owner.avatar_url,
