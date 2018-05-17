@@ -1,0 +1,17 @@
+mixin card(title, url, icon)
+  .card.col-md-4.text-center
+    .card-body
+      img.card-img-top(src='img/'+icon+'.png')
+      h4.card-title= title
+      p.card-text
+        block
+      a.btn.btn-secondary(href=url target='_blank') Visit
+
+mixin card-defunct(title, icon)
+  .card.col-md-4.text-center
+    .card-body
+      img.card-img-top(src='img/'+icon+'.png')
+      h4.card-title= title
+      p.card-text
+        block
+      strong Website defunct

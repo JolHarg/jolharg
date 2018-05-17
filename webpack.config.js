@@ -38,11 +38,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.EnvironmentPlugin(
-            [
-                `GITHUB_ACCESS_TOKEN`
-            ]
-        ),
         new HtmlWebpackPlugin(
             {
                 template: `./templates/index.pug`
