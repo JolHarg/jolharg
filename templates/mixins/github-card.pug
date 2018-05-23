@@ -3,11 +3,28 @@ mixin github-card(item)
     .card-body
       img.card-img-top-github(src=item.picture)
       h4.card-title
-        span.name !{item.name}
-        span.stars !{item.stars}
-        span.fork !{item.fork}
+        span.name= item.name
+        if item.stars
+          span.stars &nbsp;(!{item.stars}★)
+        if item.fork
+          span.fork &nbsp;⑂
       p.card-text
-        span.description !{item.description}
+        if item.description
+          span.description= item.description
+        else
+          span.description (no description)
         br
-        span.licence !{item.licence}
-      a.btn.btn-secondary(href=item.url,target='_blank') Source
+        if item.licence
+          if item.licence.spdx_id
+            a(href='https://spdx.org/licenses/' + item.licence.spdx_id + '.html', target='_blank')= item.licence.spdx_id
+          else
+            small
+              em Other licence
+        else
+          small
+            em Not yet licenced
+      a.btn.btn-secondary(href=item.source_url,target='_blank') Source
+      if item.website_url
+        | 
+        a.btn.btn-secondary(href=item.website_url,target='_blank') Website
+        
