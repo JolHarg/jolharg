@@ -1,6 +1,7 @@
 const webpack = require(`webpack`),
     HtmlWebpackPlugin = require(`html-webpack-plugin`),
-    CopyWebpackPlugin = require(`copy-webpack-plugin`);
+    CopyWebpackPlugin = require(`copy-webpack-plugin`),
+    repoMap = require(`./lib/repo-map`);
 
 module.exports = {
     context: __dirname,
@@ -40,14 +41,20 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin(
             {
-                template: `./templates/index.pug`
+                template: `./templates/index.pug`,
+                templateParameters: {
+                    "repos": [
+                        require(`./github/jolharg`).map(repoMap),
+                        require(`./github/danwdart`).map(repoMap)
+                    ]
+                }
             }
         ),
         new CopyWebpackPlugin(
             [
                 {
-                    from: `./img`,
-                    to: `./img`
+                    from: `./static`,
+                    to: `./`
                 }
             ]
         ),

@@ -64,6 +64,10 @@ h1,h2,h3,h4,h5,h6,p,a {
     margin-bottom: 20px;
 }
 
+.card .card-img-top-github {
+    object-fit: contain;
+}
+
 .card .card-body {
     box-shadow: 3px 3px 5px #ccc;
 }
@@ -83,4 +87,17 @@ h1,h2,h3,h4,h5,h6,p,a {
 
 .card .btn {
     line-height: 20px;
+}
+
+footer {
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    padding: 5px 5px 0 5px;
+    box-shadow: 3px 3px 5px #ccc;
+}
+
+footer p {
+    padding: 0;
+    margin: 0;
 }

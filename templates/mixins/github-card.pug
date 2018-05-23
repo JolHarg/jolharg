@@ -1,0 +1,12 @@
+mixin github-card(item)
+  .card.col-md-4.text-center
+    .card-body
+      img.card-img-top-github(src=item.picture)
+      h4.card-title
+        | !{item.name}
+        | !{item.stars}
+        | !{item.fork}
+      p.card-text
+        | !{item.description}
+        | !{item.licence}
+      a.btn.btn-secondary(href=item.url,target='_blank') Visit
