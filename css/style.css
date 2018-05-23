@@ -72,13 +72,13 @@ h1,h2,h3,h4,h5,h6,p,a {
     box-shadow: 3px 3px 5px #ccc;
 }
 
-.card .card-title {
-    height: 50px;
+.card .card-text {
+    max-width: 100%;
 }
 
-.card .card-text {
-    height: 40px;
-    max-width: 100%;
+.card .card-text .description {
+    display: inline-block;
+    height: 50px;
 }
 
 .card strong {

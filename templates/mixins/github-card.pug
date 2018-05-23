@@ -3,10 +3,11 @@ mixin github-card(item)
     .card-body
       img.card-img-top-github(src=item.picture)
       h4.card-title
-        | !{item.name}
-        | !{item.stars}
-        | !{item.fork}
+        span.name !{item.name}
+        span.stars !{item.stars}
+        span.fork !{item.fork}
       p.card-text
-        | !{item.description}
-        | !{item.licence}
-      a.btn.btn-secondary(href=item.url,target='_blank') Visit
+        span.description !{item.description}
+        br
+        span.licence !{item.licence}
+      a.btn.btn-secondary(href=item.url,target='_blank') Source
