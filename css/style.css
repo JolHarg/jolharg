@@ -103,6 +103,10 @@ footer p {
     margin: 0;
 }
 
+.bg-light {
+    background: white;
+}
+
 .form-group:last-of-type {
     margin-bottom: 0;
 }
