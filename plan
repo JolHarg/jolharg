@@ -1,0 +1,10 @@
+on comment endpoint ->
+  -> add file to a branch of git
+  -> make PR
+on approve ->
+  -> merge happens
+  -> travis builds it!
+
+1. add comment endpoint to run
+  insert file
+  git commit -
