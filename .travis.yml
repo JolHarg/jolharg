@@ -6,10 +6,18 @@ cache:
 install:
   - npm install
 before_script:  
+  - scripts/getrepo.sh danwdart
+  - scripts/getrepo.sh jolharg
   - npm run build
 script:
   - npm test
-after_success:
-  - scripts/getrepo.sh danwdart
-  - scripts/getrepo.sh jolharg
-  - npm run deploy
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_ACCESS_TOKEN
+  keep-history: true
+  local-dir: .site
+  committer-from-gh: true
+  fqdn: jolharg.com
+  on:
+    branch: master
