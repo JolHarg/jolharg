@@ -1,8 +1,15 @@
 language: node_js
 node_js:
   - "9.4"
-before_script:
+cache:
+  - node_modules
+install:
   - npm install
+before_script:  
   - npm run build
 script:
   - npm test
+after_success:
+  - scripts/getrepo.sh danwdart
+  - scripts/getrepo.sh jolharg
+  - npm run deploy
