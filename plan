@@ -5,3 +5,15 @@ on comment endpoint ->
 1. add comment endpoint to run
   insert file
   git commit -
+
+- a homepage with a carousel with the same images as on the portfolio page, with text in front describing what I do
+- a blog page and a post page, with tech blog posts
+- a personal site with a similar theme and more personal stuff like radio, linking to this one
+- more demos of Free Software (I did add a Website link to ones that had one).
+- maybe having some of the demos integrated into the page, and have that as a page, like "Demos" (come see my lovely demos) (in an iframe maybe)
+- a technologies page, although I tried it, it looked shite, I was going to have icon on right, explain on left, icon on left, explain on right, but it doesn't follow well either and looks too hipster so maybe I should just use those cards again, with small Spec links instead of Visit buttons?
+- drop shadows that move with your mouse (or is that too much)
+- more info buttons on cards that spin the card over and tell you more?
+- my personal details on a card on the contact page, slightly diagonally to look like a real business card, and that moves a bit just for the lols?
+- instructions on how I built this site? Or how to build your own similar? Probably good as a blog post.
+- some kind of pricing page, that describes how much my services are perhaps for small and big business split up?
