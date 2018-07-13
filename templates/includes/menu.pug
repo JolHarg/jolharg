@@ -1,9 +1,16 @@
 div
-  ul.navbar-nav
-    +menuitem('#portfolio') Portfolio
-    // +menuitem('#techs') Technologies
-    +menuitem('#fs') Free Software
-    // +menuitem('#pricing') Pricing
-    // +menuitem('#blog') Blog
-    // +menuitem('#about') About
-    +menuitem('#contact') Contact
+  ul.navbar-nav.px-3
+    +menuitem('Portfolio', true)
+      include ../pages/portfolio
+    // +menuitem('Technologies')
+    //   include ../pages/techs
+    +menuitem('Free Software')
+      include ../pages/fs
+    // +menuitem('Pricing')
+    //   include ../pages/pricing
+    // +menuitem('Blog')
+    //   include ../pages/blog
+    // +menuitem('About')
+    //   include ../pages/about
+    +menuitem('Contact')
+      include ../pages/contact

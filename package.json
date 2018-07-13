@@ -4,11 +4,12 @@
   "description": "JolHarg Web Site",
   "main": "js/index.js",
   "scripts": {
-    "build": "webpack",
-    "deploy": "npm run test && npm run build && gh-pages -d .site",
-    "start": "webpack serve",
-    "test": "eslint js/src lib *.js",
-    "fix": "eslint --fix js/src lib *.js"
+    "build:static": "mkdir -p .site && cp -r static/* .site/",
+    "build:css": "mkdir -p .site/css && uncss -H .site -C . -s https://fonts.googleapis.com/css?family=Caudex,node_modules/bootstrap/dist/css/bootstrap.min.css,css/style.css < .site/index.html > .site/css/style.css",
+    "build:render": "node --experimental-modules lib/prepare-templates.mjs | node_modules/.bin/pug -O /dev/stdin templates/index.pug -o .site",
+    "build": "npm run build:static && npm run build:render && npm run build:css",
+    "deploy": "npm run build && gh-pages -d .site",
+    "start": "npm run build && serve .site"
   },
   "repository": {
     "type": "git",
@@ -27,30 +28,14 @@
   },
   "homepage": "https://github.com/JolHarg/jolharg#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-stage-0": "^7.0.0-beta.49",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^8.0.0-beta.3",
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
-    "html-webpack-plugin": "^3.2.0",
     "jstransformer-markdown-it": "^2.1.0",
     "pug": "^2.0.3",
-    "pug-loader": "^2.4.0",
-    "serverless": "^1.27.3",
-    "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^2.1.5",
-    "webpack-dev-server": "^3.1.4"
+    "pug-cli": "^1.0.0-alpha6",
+    "uncss": "^0.16.2"
   },
   "dependencies": {
-    "bootstrap": "^4.1.1",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "bootstrap": "^4.1.2",
+    "serve": "^9.2.0"
   }
 }

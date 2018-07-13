@@ -36,11 +36,19 @@ h1,h2,h3,h4,h5,h6,p,a {
     }
 }
 
-.jh-page {
+.page {
     display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
 
-.jh-page[data-active] {
+input:checked ~ label > a {
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+input:checked ~ .page {
     display: block;
 }
 
