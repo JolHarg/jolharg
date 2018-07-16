@@ -5,7 +5,7 @@
   "main": "js/index.js",
   "scripts": {
     "build:static": "mkdir -p .site && cp -r static/* .site/",
-    "build:css": "mkdir -p .site/css && uncss -H .site -C . -s https://fonts.googleapis.com/css?family=Caudex,node_modules/bootstrap/dist/css/bootstrap.min.css,css/style.css < .site/index.html > .site/css/style.css",
+    "build:css": "mkdir -p .site/css && uncss -H .site -C . -s https://fonts.googleapis.com/css?family=Caudex,node_modules/bootstrap/dist/css/bootstrap.min.css,node_modules/jolharg-theme/css/style.css,css/style.css < .site/index.html > .site/css/style.css",
     "build:render": "node --experimental-modules lib/prepare-templates.mjs | node_modules/.bin/pug -O /dev/stdin templates/index.pug -o .site",
     "build": "npm run build:static && npm run build:render && npm run build:css",
     "deploy": "npm run build && gh-pages -d .site",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.2",
+    "jolharg-theme": "git+ssh://git@github.com/danwdart/jolharg-theme.git",
     "serve": "^9.2.0"
   }
 }

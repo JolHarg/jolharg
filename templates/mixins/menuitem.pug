@@ -1,6 +1,0 @@
-mixin menuitem(name, isDefault)
-  li.nav-item
-    input(type='radio',style='display:none',checked=isDefault,name='selected',id=name,value=name)
-    label(for=name)
-      a.nav-link.btn.btn-sm= name
-    block
