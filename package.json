@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.2",
-    "jolharg-theme": "git+ssh://git@github.com/danwdart/jolharg-theme.git",
+    "jolharg-theme": "git+https://git@github.com/danwdart/jolharg-theme.git",
     "serve": "^9.2.0"
   }
 }
