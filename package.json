@@ -35,8 +35,8 @@
     "uncss": "^0.16.2"
   },
   "dependencies": {
+    "@jolharg/website-theme": "^0.0.3",
     "bootstrap": "^4.1.2",
-    "@jolharg/website-theme": "^0.0.1",
-    "serve": "^9.2.0"
+    "serve": "^9.6.0"
   }
 }
