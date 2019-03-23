@@ -4,13 +4,15 @@
   "description": "JolHarg Web Site",
   "main": "js/index.js",
   "scripts": {
-    "build:static": "mkdir -p .site && cp -r static/* .site/",
-    "get-external-font": "wget -4 -O external/caudex.css -c https://fonts.googleapis.com/css?family=Caudex",
+    "build": "npm run build:static && npm run build:render && npm run build:css",
     "build:css": "mkdir -p .site/css external && npm run get-external-font && uncss -H .site -C . -s external/caudex.css,node_modules/bootstrap/dist/css/bootstrap.min.css,node_modules/@jolharg/website-theme/css/style.css,css/style.css < .site/index.html > .site/css/style.css",
     "build:render": "node --experimental-modules lib/prepare-templates.mjs | node_modules/.bin/pug -O /dev/stdin templates/index.pug -o .site",
-    "build": "npm run build:static && npm run build:render && npm run build:css",
+    "build:static": "mkdir -p .site && cp -r static/* .site/",
     "deploy": "npm run build && gh-pages -d .site",
-    "start": "npm run build && serve .site"
+    "get-external-font": "wget -4 -O external/caudex.css -c https://fonts.googleapis.com/css?family=Caudex",
+    "start": "npm run build && serve .site",
+    "test": "mocha -r esm test/**/*.spec.js",
+    "test:record": "node -r core-js -r esm test/record.js"
   },
   "repository": {
     "type": "git",
@@ -29,10 +31,16 @@
   },
   "homepage": "https://github.com/JolHarg/jolharg#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "core-js": "^3.0.0",
+    "esm": "^3.2.20",
+    "geckodriver": "^1.16.0",
     "gh-pages": "^1.2.0",
     "jstransformer-markdown-it": "^2.1.0",
+    "mocha": "^6.0.2",
     "pug": "^2.0.3",
     "pug-cli": "^1.0.0-alpha6",
+    "selenium-webdriver": "^4.0.0-alpha.1",
     "uncss": "^0.16.2"
   },
   "dependencies": {
