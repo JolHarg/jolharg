@@ -4,18 +4,20 @@ import {promisify} from 'util';
 
 import serveHandler from 'serve-handler';
 import {createServer} from 'http';
-
 import {assert} from 'chai';
 
-const config = JSON.parse(await readFile('test/config.json'));
 const readFile = promisify(fs.readFile);
 
-const driver = await new Builder().forBrowser('firefox').build();
 const server = createServer((req, res) => serveHandler(req, res, {public: '.site'}));
+server.listen(5000, () => console.log('Running at http://localhost:5000'));
+
+let config, driver, pageDataFromFile; 
 
 describe('page structure', () => {
     before(async () => {
-        server.listen(5000, () => console.log('Running at http://localhost:5000'));
+        driver = await new Builder().forBrowser('firefox').build();
+        config = JSON.parse(await readFile('test/config.json'));
+        pageDataFromFile = JSON.parse(await readFile('test/page_data.json'));
         await driver.get('http://localhost:5000');
         await driver.wait(until.elementLocated(By.className('p-0')));
     });
@@ -25,7 +27,7 @@ describe('page structure', () => {
         server.close();
     });
 
-    it('matches the recorded page structure', () => {
+    it('matches the recorded page structure', async () => {
         const elements = await driver.findElements(By.css('*'));
         
         const pageData = Object.fromEntries(await Promise.all(config.resolutions.map(
@@ -46,6 +48,6 @@ describe('page structure', () => {
             }
         )));
 
-        assert(pageData === )
+        assert(pageData === pageDataFromFile);
     })
 });
