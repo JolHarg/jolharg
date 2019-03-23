@@ -35,7 +35,7 @@
     "core-js": "^3.0.0",
     "esm": "^3.2.20",
     "geckodriver": "^1.16.0",
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^2.0.1",
     "jstransformer-markdown-it": "^2.1.0",
     "mocha": "^6.0.2",
     "pug": "^2.0.3",
@@ -46,6 +46,6 @@
   "dependencies": {
     "@jolharg/website-theme": "^0.0.4",
     "bootstrap": "^4.3.1",
-    "serve": "^9.6.0"
+    "serve": "^10.1.2"
   }
 }
