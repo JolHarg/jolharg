@@ -16,7 +16,7 @@ export default config => driver => links => async elements => await promiseSeria
                         return {
                             [linkText]: {
                                 elements: (await Promise.all(elements.map(
-                                    async (element, i) => ({
+                                    async element => ({
                                         //id: await element.getId(),
                                         tagName: await element.getTagName(),
                                         rect: Object.fromEntries(
@@ -40,7 +40,8 @@ export default config => driver => links => async elements => await promiseSeria
                                     'undefined' !== typeof el.rect.height &&
                                     0 !== el.rect.height &&
                                     'undefined' !== typeof el.rect.width &&
-                                    0 !== el.rect.width
+                                    0 !== el.rect.width &&
+                                    (console.log(el) || true)
                                 )
                             }
                         };
