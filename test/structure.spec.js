@@ -6,8 +6,6 @@ import serveHandler from 'serve-handler';
 import {createServer} from 'http';
 import {assert} from 'chai';
 
-import {detailedDiff} from 'deep-object-diff';
-
 import inspectPageData from './lib/inspectPageData';
 
 const readFile = promisify(fs.readFile);
@@ -46,13 +44,7 @@ describe('page structure', async function() {
             assert.deepEqual(
                 pageData,
                 pageDataFromFile,
-                'Page data does not equal the recorded page data: ' +
-                JSON.stringify(
-                    detailedDiff(
-                        pageDataFromFile,
-                        pageData
-                    )
-                )
+                'Page data does not equal the recorded page data.'
             );
         } catch (err) {
             throw new Error(err.message);
