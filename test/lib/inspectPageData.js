@@ -27,7 +27,7 @@ export default config => driver => links => async elements => await promiseSeria
                                                     ) || {}
                                                 ) || []
                                             ).map(
-                                                ([k, v]) => ([k, Math.floor(v)])
+                                                ([k, v]) => ([k, Math.round(v)])
                                             ) || []
                                         )
                                     })
