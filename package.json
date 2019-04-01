@@ -11,7 +11,8 @@
     "deploy": "npm run build && gh-pages -d .site",
     "get-external-font": "wget -4 -O external/caudex.css -c https://fonts.googleapis.com/css?family=Caudex",
     "start": "npm run build && serve .site",
-    "test": "mocha -r esm test/**/*.spec.js",
+    "test": "npm run test:lint && mocha -r core-js -r esm **/*.spec.js **/**/*.spec.js",
+    "test:lint": "eslint --fix **/*.js",
     "test:record": "node -r core-js -r esm test/record.js"
   },
   "repository": {
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "core-js": "^3.0.0",
+    "eslint": "^5.16.0",
     "esm": "^3.2.20",
     "geckodriver": "^1.16.0",
     "gh-pages": "^2.0.1",

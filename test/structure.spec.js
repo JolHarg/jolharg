@@ -1,4 +1,4 @@
-import {Builder, By, until} from 'selenium-webdriver'
+import {Builder, By, until} from 'selenium-webdriver';
 import fs from 'fs';
 import {promisify} from 'util';
 
@@ -6,48 +6,44 @@ import serveHandler from 'serve-handler';
 import {createServer} from 'http';
 import {assert} from 'chai';
 
+import inspectPageData from './lib/inspectPageData';
+
 const readFile = promisify(fs.readFile);
 
 const server = createServer((req, res) => serveHandler(req, res, {public: '.site'}));
-server.listen(5000, () => console.log('Running at http://localhost:5000'));
 
 let config, driver, pageDataFromFile; 
 
-describe('page structure', () => {
+describe('page structure', async function() {
+    this.timeout(480000);
+
     before(async () => {
-        driver = await new Builder().forBrowser('firefox').build();
+        server.listen(5000, () => {});
         config = JSON.parse(await readFile('test/config.json'));
+        driver = await new Builder().forBrowser(config.browser).build();
         pageDataFromFile = JSON.parse(await readFile('test/page_data.json'));
         await driver.get('http://localhost:5000');
         await driver.wait(until.elementLocated(By.className('p-0')));
     });
 
     after(async () => {
-        await driver.quit();
-        server.close();
+        try {
+            await driver.quit();
+            server.close();
+        } catch (err) {
+            console.error(err);
+        }
     });
 
     it('matches the recorded page structure', async () => {
-        const elements = await driver.findElements(By.css('*'));
-        
-        const pageData = Object.fromEntries(await Promise.all(config.resolutions.map(
-            async ({name, width, height}) => {
-                await driver.manage().window().setRect({width, height});
-                return [
-                    name,
-                    (await Promise.all(elements.map(
-                        async element => ({
-                            id: await element.getId(),
-                            tagName: await element.getTagName(),
-                            rect: Object.fromEntries((Object.entries((await element.getRect()) || {}) || []).map(
-                                ([k, v]) => ([k, Math.floor(v)])
-                            ) || [])
-                        })
-                    ))).filter(el => el.rect && el.rect.x !== 0 && el.rect.y !== 0 && el.rect.height !== 0 && el.rect.width !== 0)
-                ];
-            }
-        )));
-
-        assert(pageData === pageDataFromFile);
-    })
+        try {
+            const elements = await driver.findElements(By.css(config.checkSelector));
+            const links = await driver.findElements(By.css(config.links));
+            const pageData = await inspectPageData(config)(driver)(links)(elements);
+            
+            assert.deepEqual(pageData, pageDataFromFile, 'Page data does not equal the recorded page data');
+        } catch (err) {
+            throw new Error(err.message);
+        }
+    });
 });
