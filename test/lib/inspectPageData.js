@@ -40,8 +40,7 @@ export default config => driver => links => async elements => await promiseSeria
                                     'undefined' !== typeof el.rect.height &&
                                     0 !== el.rect.height &&
                                     'undefined' !== typeof el.rect.width &&
-                                    0 !== el.rect.width &&
-                                    (console.log(el) || true)
+                                    0 !== el.rect.width
                                 )
                             }
                         };
