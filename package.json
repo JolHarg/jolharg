@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build:static && npm run build:render && npm run build:css",
     "build:css": "mkdir -p .site/css external && npm run get-external-font && uncss -H .site -C . -s external/caudex.css,node_modules/bootstrap/dist/css/bootstrap.min.css,node_modules/@jolharg/website-theme/css/style.css,css/style.css < .site/index.html > .site/css/style.css",
-    "build:render": "node --experimental-modules lib/prepare-templates.mjs | node_modules/.bin/pug -O /dev/stdin templates/index.pug -o .site",
+    "build:render": "node -r esm lib/prepare-templates.js | node_modules/.bin/pug -O /dev/stdin templates/index.pug -o .site",
     "build:static": "mkdir -p .site && cp -r static/* .site/",
     "deploy": "npm run build && gh-pages -d .site",
     "get-external-font": "wget -4 -O external/caudex.css -c https://fonts.googleapis.com/css?family=Caudex",
