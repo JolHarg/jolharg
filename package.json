@@ -33,20 +33,20 @@
   "homepage": "https://github.com/JolHarg/jolharg#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "core-js": "^3.0.0",
+    "core-js": "^3.0.1",
     "eslint": "^5.16.0",
-    "esm": "^3.2.20",
-    "geckodriver": "^1.16.0",
+    "esm": "^3.2.22",
+    "geckodriver": "^1.16.2",
     "gh-pages": "^2.0.1",
     "jstransformer-markdown-it": "^2.1.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.4",
     "pug": "^2.0.3",
     "pug-cli": "^1.0.0-alpha6",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "uncss": "^0.16.2"
   },
   "dependencies": {
-    "@jolharg/website-theme": "^0.0.4",
+    "@jolharg/website-theme": "^0.0.5",
     "bootstrap": "^4.3.1",
     "serve": "^10.1.2"
   }
